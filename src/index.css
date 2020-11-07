@@ -3,3 +3,9 @@
   padding: 0;
   box-sizing: border-box;
 }
+td:hover td:active {
+  background: rgba(5, 5, 5, 0.5);
+}
+.selected {
+  background: #ffce54f9;
+}

@@ -39,11 +39,14 @@ const Formulario = ({ submit }) => {
         </div>
       </div>
       <div className="form-group">
-        <input
+        <input type="submit" value="Generar" className=" m-2 btn btn-primary" />
+        <button
+          onClick={submit({ lineas: 0, columnas: 0 })}
           type="submit"
-          value="Generar"
-          className="btn btn-primary btn-block"
-        />
+          className="btn btn-danger m-2"
+        >
+          Limpiar
+        </button>
       </div>
     </form>
   );
