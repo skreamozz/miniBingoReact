@@ -18,12 +18,12 @@ const Bingo = () => {
   };
   return (
     <>
-      <div className="row m-auto">
+      <div className="row m-auto justify-content-center">
         <div className="col-md-auto">
           <Formulario submit={handleSubmit} />
         </div>
       </div>
-      <div className="row">
+      <div className="row justify-content-center">
         {grid ? <Talon grid={grid} lineasyColumnas={LineasyColumnas} /> : null}
       </div>
     </>
