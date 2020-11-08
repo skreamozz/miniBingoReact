@@ -4,7 +4,7 @@ const Talon = ({ grid, lineasyColumnas }) => {
   const [tabla, setTabla] = useState();
   const handleClick = (e) => {
     if (e.target.className.includes("selected")) {
-      e.target.className = "p-5 font-weight-bold";
+      e.target.className = "p-5 font-weight-bold user-select-none";
     } else {
       e.target.className += " selected";
     }
@@ -27,7 +27,7 @@ const Talon = ({ grid, lineasyColumnas }) => {
                 <td
                   onClick={handleClick}
                   key={index}
-                  className="p-5 font-weight-bold"
+                  className="p-5 font-weight-bold user-select-none"
                 >
                   {cols}
                 </td>
