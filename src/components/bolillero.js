@@ -36,7 +36,7 @@ const Bolillero = ({ numeroMax }) => {
 
   return (
     <div
-      className="rounded-circle text-center display-4 bg-secondary text-white p-5"
+      className="user-select-none rounded-circle text-center display-4 bg-secondary text-white p-5"
       onClick={handleClick}
     >
       {numero.toString().padStart(2, "00")}
