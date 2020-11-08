@@ -1,8 +1,18 @@
 import React, { useState } from "react";
 
+/**
+ *
+ * @param {Number} numeroMax
+ *
+ */
 const Bolillero = ({ numeroMax }) => {
   const [numero, setNumero] = useState(0);
   const [numerosSalidos, setNumerosSalidos] = useState([]);
+
+  /**
+   * funcion recursiva que se encarga de calular los numeros y verificar
+   * que no se repitan ni se salgan del rango comprendido
+   */
   const calcularRandom = () => {
     if (numeroMax === 0) {
       setNumerosSalidos([]);
@@ -23,12 +33,13 @@ const Bolillero = ({ numeroMax }) => {
   const handleClick = () => {
     setNumero(calcularRandom());
   };
+
   return (
     <div
-      className="card text-center display-4 bg-secondary text-white p-5"
+      className="rounded-circle text-center display-4 bg-secondary text-white p-5"
       onClick={handleClick}
     >
-      {numero}
+      {numero.toString().padStart(2, "00")}
     </div>
   );
 };
