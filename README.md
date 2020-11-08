@@ -2,4 +2,4 @@
 
 ## mini bingo desarrollado con react
 
-[bingo]https://bingo.maximilianocortes.tech
+[bingo](https://bingo.maximilianocortes.tech)
