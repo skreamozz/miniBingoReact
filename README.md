@@ -1,2 +1,5 @@
-bingo virtual
-bingo.maximilianocortes.tech
+# bingo virtual
+
+## mini bingo desarrollado con react
+
+[bingo]https://bingo.maximilianocortes.tech
