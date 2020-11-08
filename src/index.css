@@ -9,3 +9,9 @@ td:hover td:active {
 .selected {
   background: #ffce54f9;
 }
+.tableWrapper {
+  position: relative;
+  height: 75vh;
+  overflow: auto;
+  display: block;
+}

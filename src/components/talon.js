@@ -4,7 +4,7 @@ const Talon = ({ grid, lineasyColumnas }) => {
   const [tabla, setTabla] = useState();
   const handleClick = (e) => {
     if (e.target.className.includes("selected")) {
-      e.target.className = "p-5";
+      e.target.className = "p-5 font-weight-bold";
     } else {
       e.target.className += " selected";
     }
@@ -19,21 +19,26 @@ const Talon = ({ grid, lineasyColumnas }) => {
       }
     }
     let tableTemp = (
-      <table className="table table-responsive table-bordered table-striped">
+      <table className="table table-responsive table-bordered table-striped table-secondary">
         <tbody>
           {gridTemp.map((rows, index) => (
             <tr key={index}>
               {rows.map((cols, index) => (
-                <td onClick={handleClick} key={index} className="p-5">
+                <td
+                  onClick={handleClick}
+                  key={index}
+                  className="p-5 font-weight-bold"
+                >
                   {cols}
                 </td>
               ))}
-              <td>
+              <td className="form-group">
+                <span>Nombre</span>
                 <input
                   type="text"
                   name="dueño"
                   id=""
-                  className="form-control"
+                  className="form-control bg-dark text-white"
                   style={{ minWidth: "100px" }}
                 />
               </td>
@@ -45,7 +50,9 @@ const Talon = ({ grid, lineasyColumnas }) => {
     setTabla(tableTemp);
   }, [grid, lineasyColumnas]);
 
-  return <div className="col-md-auto">{!tabla ? null : tabla}</div>;
+  return (
+    <div className="col-md-auto tableWrapper">{!tabla ? null : tabla}</div>
+  );
 };
 
 export default Talon;

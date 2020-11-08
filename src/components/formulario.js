@@ -9,7 +9,7 @@ const Formulario = ({ submit }) => {
   const [state, handleChange] = useForm({ lineas: 0, columnas: 0 });
 
   return (
-    <form onSubmit={submit(state)} className="p-3">
+    <form onSubmit={submit(state)} className="p-3 card bg-secondary">
       <div className="form-row">
         <div className="col">
           <div className="form-group">

@@ -1,9 +1,13 @@
 import React, { useState } from "react";
+import Bolillero from "./bolillero";
 import Formulario from "./formulario";
 import Talon from "./talon";
 
 const Bingo = () => {
-  const [LineasyColumnas, setLineasyColumnas] = useState();
+  const [LineasyColumnas, setLineasyColumnas] = useState({
+    lineas: 0,
+    columnas: 0,
+  });
   const [grid, setGrid] = useState();
   const handleSubmit = (state) => (e) => {
     e.preventDefault();
@@ -21,6 +25,15 @@ const Bingo = () => {
       <div className="row m-auto justify-content-center">
         <div className="col-md-auto">
           <Formulario submit={handleSubmit} />
+        </div>
+      </div>
+      <div className="row justify-content-center m-2">
+        <div className="col-md-auto">
+          {LineasyColumnas.lineas === 0 ? null : (
+            <Bolillero
+              numeroMax={LineasyColumnas.lineas * LineasyColumnas.columnas || 0}
+            />
+          )}
         </div>
       </div>
       <div className="row justify-content-center">
