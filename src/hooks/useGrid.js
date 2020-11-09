@@ -3,18 +3,21 @@ import React, { useCallback, useEffect, useState } from "react";
 const useGrid = ({ grid, lineasyColumnas }) => {
   const [tabla, setTabla] = useState();
   const [inputs, setInputs] = useState({});
+
   const handleChange = useCallback(
     (e) => {
       setInputs({ ...inputs, [e.target.name]: e.target.value });
     },
     [inputs]
   );
+
   useEffect(() => {
     if (grid.length === 0) {
       setTabla(null);
       setInputs({});
     }
   }, [grid.length]);
+
   useEffect(() => {
     const handleClick = (e) => {
       if (e.target.className.includes("selected")) {
