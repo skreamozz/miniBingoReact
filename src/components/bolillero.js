@@ -18,7 +18,6 @@ const Bolillero = ({ numeroMax }) => {
       setNumerosSalidos([]);
       return 0;
     }
-    console.log(numerosSalidos);
     if (numerosSalidos.length === numeroMax) return 0;
     let numero = Math.floor(Math.random() * numeroMax + 1);
     const filtro = numerosSalidos.filter((x) => x === numero);

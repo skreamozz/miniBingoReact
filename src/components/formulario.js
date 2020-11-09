@@ -47,6 +47,13 @@ const Formulario = ({ submit }) => {
         >
           Limpiar
         </button>
+        <button
+          onClick={submit("guardar")}
+          type="submit"
+          className="btn btn-info m-2"
+        >
+          guardar
+        </button>
       </div>
     </form>
   );

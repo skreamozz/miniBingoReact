@@ -11,10 +11,14 @@ const Bingo = () => {
   const [grid, setGrid] = useState();
   const handleSubmit = (state) => (e) => {
     e.preventDefault();
+    if (state === "guardar") {
+      return;
+    }
     let tempGrid = [];
     for (let i = 0; i < state.lineas; i++) {
+      tempGrid.push([]);
       for (let j = 0; j < state.columnas; j++) {
-        tempGrid.push(j * state.lineas + i + 1);
+        tempGrid[i].push(j * state.lineas + i + 1);
       }
     }
     setLineasyColumnas(state);
