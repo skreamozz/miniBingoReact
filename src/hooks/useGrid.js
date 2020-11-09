@@ -1,14 +1,15 @@
 import React, { useCallback, useEffect, useState } from "react";
+import { useBingoContext } from "../context/BingoContext";
 
 const useGrid = ({ grid, lineasyColumnas }) => {
   const [tabla, setTabla] = useState();
-  const [inputs, setInputs] = useState({});
+  const { inputs, setInputs } = useBingoContext();
 
   const handleChange = useCallback(
     (e) => {
       setInputs({ ...inputs, [e.target.name]: e.target.value });
     },
-    [inputs]
+    [inputs, setInputs]
   );
 
   useEffect(() => {
@@ -16,7 +17,7 @@ const useGrid = ({ grid, lineasyColumnas }) => {
       setTabla(null);
       setInputs({});
     }
-  }, [grid.length]);
+  }, [grid.length, setInputs]);
 
   useEffect(() => {
     const handleClick = (e) => {
@@ -60,7 +61,7 @@ const useGrid = ({ grid, lineasyColumnas }) => {
     setTabla(tableTemp);
   }, [grid, lineasyColumnas, handleChange]);
 
-  return [tabla, inputs];
+  return [tabla];
 };
 
 export default useGrid;

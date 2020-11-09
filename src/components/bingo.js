@@ -1,9 +1,11 @@
 import React, { useState } from "react";
+import { useBingoContext } from "../context/BingoContext";
 import Bolillero from "./bolillero";
 import Formulario from "./formulario";
 import Talon from "./talon";
 
 const Bingo = () => {
+  const { inputs } = useBingoContext();
   const [LineasyColumnas, setLineasyColumnas] = useState({
     lineas: 0,
     columnas: 0,
@@ -12,6 +14,7 @@ const Bingo = () => {
   const handleSubmit = (state) => (e) => {
     e.preventDefault();
     if (state === "guardar") {
+      console.log(inputs);
       return;
     }
     let tempGrid = [];
