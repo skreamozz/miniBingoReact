@@ -41,7 +41,7 @@ const Formulario = ({ submit }) => {
       <div className="form-group">
         <input type="submit" value="Generar" className=" m-2 btn btn-primary" />
         <button
-          onClick={submit({ lineas: 0, columnas: 0 })}
+          onClick={submit("limpiar")}
           type="submit"
           className="btn btn-danger m-2"
         >

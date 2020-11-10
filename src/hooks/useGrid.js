@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { useBingoContext } from "../context/BingoContext";
 
-const useGrid = ({ grid, lineasyColumnas }) => {
+const useGrid = (grid) => {
   const [tabla, setTabla] = useState();
   const { inputs, setInputs } = useBingoContext();
 
@@ -59,7 +59,7 @@ const useGrid = ({ grid, lineasyColumnas }) => {
       </table>
     );
     setTabla(tableTemp);
-  }, [grid, lineasyColumnas, handleChange]);
+  }, [grid, handleChange]);
 
   return [tabla];
 };
