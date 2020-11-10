@@ -6,7 +6,7 @@ import Talon from "./talon";
 import { db } from "../database";
 
 const Bingo = () => {
-  const { inputs } = useBingoContext();
+  const { inputs, setInputs } = useBingoContext();
   const [LineasyColumnas, setLineasyColumnas] = useState({
     lineas: 0,
     columnas: 0,
@@ -15,7 +15,6 @@ const Bingo = () => {
   const handleSubmit = (state) => (e) => {
     e.preventDefault();
     if (state === "guardar") {
-      console.log(inputs);
       let date = new Date(Date.now());
       db.add({
         inputs: inputs,
@@ -30,6 +29,7 @@ const Bingo = () => {
         });
       return;
     }
+    setInputs({});
     let tempGrid = [];
     for (let i = 0; i < state.lineas; i++) {
       tempGrid.push([]);

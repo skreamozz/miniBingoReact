@@ -15,7 +15,9 @@ function App() {
           <Switch>
             <Route path="/lista">
               <div className="row justify-content-center">
-                <Listado />
+                <div className="col-auto">
+                  <Listado />
+                </div>
               </div>
             </Route>
             <Route path="/" exact component={Bingo} />

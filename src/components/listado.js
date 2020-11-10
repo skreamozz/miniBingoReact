@@ -3,21 +3,19 @@ import { db } from "../database";
 import { Link } from "react-router-dom";
 const Listado = () => {
   const [listado, setListado] = useState([]);
+  const getData = async () => {
+    const query = await db.get();
+    const docs = await query.docs;
+    const data = await docs.map((doc) => ({ ...doc.data(), id: doc.id }));
+    return data;
+  };
   useEffect(() => {
-    const getData = async () => {
-      const query = await db.get();
-      const docs = await query.docs;
-      const data = await docs.map((doc) => ({ ...doc.data(), id: doc.id }));
-      setListado(data);
-    };
-    getData();
+    getData().then((data) => setListado(data));
   }, []);
 
   const handleClick = (id) => async (e) => {
     await db.doc(id).delete();
-    const query = await db.get();
-    const docs = await query.docs;
-    const data = await docs.map((doc) => ({ ...doc.data(), id: doc.id }));
+    const data = await getData();
     setListado(data);
   };
   return (
@@ -29,17 +27,17 @@ const Listado = () => {
         {listado.map((dato, i) => (
           <tbody key={i}>
             <tr className="bg-dark text-white">
-              <td>
+              <td className="">
                 <div className="row justify-content-between ">
-                  <div className="col">
+                  <div className="col-auto align-self-center">
                     <span>{`${dato.fecha} | ${dato.hora}`}</span>
                   </div>
-                  <div className="col">
+                  <div className="col-auto align-self-center">
                     <button
                       className="btn btn-danger"
                       onClick={handleClick(dato.id)}
                     >
-                      Eliminar
+                      <i className="fas fa-trash-alt"></i>
                     </button>
                   </div>
                 </div>
