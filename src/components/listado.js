@@ -49,11 +49,11 @@ const Listado = () => {
             </tr>
             <tr className="">
               <td>
-                <table>
+                <table className="table">
                   <tbody>
                     <tr>
                       {Object.keys(dato.inputs).map((key, i) => (
-                        <td key={i}>{`${key} : ${dato.inputs[key]}`}</td>
+                        <td key={i}>{`${key}: ${dato.inputs[key]}`}</td>
                       ))}
                     </tr>
                   </tbody>
