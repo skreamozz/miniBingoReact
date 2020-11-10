@@ -3,6 +3,7 @@ import { useBingoContext } from "../context/BingoContext";
 import Bolillero from "./bolillero";
 import Formulario from "./formulario";
 import Talon from "./talon";
+
 const Bingo = () => {
   const { inputs, setInputs } = useBingoContext();
   const [grid, setGrid] = useState();
@@ -29,6 +30,7 @@ const Bingo = () => {
       ])
     );
   };
+
   const Limpiar = () => {
     setGrid([]);
     setInputs({});
