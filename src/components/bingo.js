@@ -3,7 +3,7 @@ import { useBingoContext } from "../context/BingoContext";
 import Bolillero from "./bolillero";
 import Formulario from "./formulario";
 import Talon from "./talon";
-import { db } from "../database";
+//import { db } from "../database";
 
 const Bingo = () => {
   const { inputs, setInputs } = useBingoContext();
@@ -11,22 +11,29 @@ const Bingo = () => {
     lineas: 0,
     columnas: 0,
   });
+  const GuardarInputs = () => {
+    let date = new Date(Date.now());
+    const items = JSON.parse(localStorage.getItem("prueba"));
+    localStorage.setItem(
+      "prueba",
+      JSON.stringify([
+        ...items,
+        {
+          id: Date.now(),
+          inputs: inputs,
+          fecha: date.toLocaleDateString(),
+          hora: date.getHours() + ":" + date.getSeconds(),
+        },
+      ])
+    );
+  };
   const [grid, setGrid] = useState();
   const handleSubmit = (state) => (e) => {
     e.preventDefault();
     if (state === "guardar") {
-      let date = new Date(Date.now());
-      db.add({
-        inputs: inputs,
-        fecha: date.toLocaleDateString(),
-        hora: date.getHours() + ":" + date.getSeconds(),
-      })
-        .then(() => {
-          alert("se guardo");
-        })
-        .catch(() => {
-          alert("error");
-        });
+      if (Object.keys(inputs).length === 0) return;
+      GuardarInputs();
+      alert("se guardo correctamente");
       return;
     }
     setInputs({});

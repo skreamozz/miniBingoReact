@@ -1,22 +1,26 @@
 import React, { useEffect, useState } from "react";
-import { db } from "../database";
+//import { db } from "../database";
 import { Link } from "react-router-dom";
 const Listado = () => {
   const [listado, setListado] = useState([]);
-  const getData = async () => {
-    const query = await db.get();
+  const getData = () => {
+    /*     const query = await db.get();
     const docs = await query.docs;
-    const data = await docs.map((doc) => ({ ...doc.data(), id: doc.id }));
+    const data = await docs.map((doc) => ({ ...doc.data(), id: doc.id })); */
+    const data = JSON.parse(localStorage.getItem("prueba"));
     return data;
   };
   useEffect(() => {
-    getData().then((data) => setListado(data));
+    setListado(getData());
+    //getData().then((data) => setListado(data));
   }, []);
 
-  const handleClick = (id) => async (e) => {
-    await db.doc(id).delete();
-    const data = await getData();
-    setListado(data);
+  const handleClick = (id) => (e) => {
+    const data = getData();
+    const newData = data.filter((x) => x.id !== id);
+    localStorage.setItem("prueba", JSON.stringify(newData));
+    //await db.doc(id).delete();
+    setListado(newData);
   };
   return (
     <div>
