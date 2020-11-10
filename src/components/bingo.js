@@ -3,6 +3,7 @@ import { useBingoContext } from "../context/BingoContext";
 import Bolillero from "./bolillero";
 import Formulario from "./formulario";
 import Talon from "./talon";
+import { db } from "../database";
 
 const Bingo = () => {
   const { inputs } = useBingoContext();
@@ -15,6 +16,18 @@ const Bingo = () => {
     e.preventDefault();
     if (state === "guardar") {
       console.log(inputs);
+      let date = new Date(Date.now());
+      db.add({
+        inputs: inputs,
+        fecha: date.toLocaleDateString(),
+        hora: date.getHours() + ":" + date.getSeconds(),
+      })
+        .then(() => {
+          alert("se guardo");
+        })
+        .catch(() => {
+          alert("error");
+        });
       return;
     }
     let tempGrid = [];

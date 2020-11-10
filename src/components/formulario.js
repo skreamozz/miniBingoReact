@@ -1,5 +1,6 @@
 import React from "react";
 import useForm from "../hooks/useForm";
+import { Link } from "react-router-dom";
 
 /**
  * @param {Function}submit
@@ -53,6 +54,9 @@ const Formulario = ({ submit }) => {
         >
           guardar
         </button>
+        <Link to="/lista" className="btn btn-success m-2 ">
+          Listado
+        </Link>
       </div>
     </form>
   );
