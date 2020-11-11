@@ -6,11 +6,7 @@ import Talon from "./talon";
 
 const Bingo = () => {
   const { inputs, setInputs } = useBingoContext();
-  const [grid, setGrid] = useState();
-  const [LineasyColumnas, setLineasyColumnas] = useState({
-    lineas: 0,
-    columnas: 0,
-  });
+  const [grid, setGrid] = useState([]);
   /**
    * metodo para guardar los inputs en el local storage
    */
@@ -45,13 +41,15 @@ const Bingo = () => {
         tempGrid[i].push(j * state.lineas + i + 1);
       }
     }
-    setLineasyColumnas(state);
+
     setGrid(tempGrid);
   };
   /**
    *
    * @param {*} state
    * metodo que maneja el evento submit del formulario
+   * posibles parametros  'guardar', 'limpiar', o un objeto
+   * {lineas:number, columnas:number}
    */
   const handleSubmit = (state) => (e) => {
     e.preventDefault();
@@ -60,10 +58,12 @@ const Bingo = () => {
       GuardarInputs();
       alert("se guardo correctamente");
       Limpiar();
+
       return;
     }
     if (state === "limpiar") {
       Limpiar();
+
       return;
     }
     GenerarGrilla(state);
@@ -75,17 +75,15 @@ const Bingo = () => {
           <Formulario submit={handleSubmit} />
         </div>
       </div>
-      <div className="row justify-content-center m-2">
+      <div className="row justify-content-center my-1">
         <div className="col-md-auto">
-          {LineasyColumnas.lineas === 0 ? null : (
-            <Bolillero
-              numeroMax={LineasyColumnas.lineas * LineasyColumnas.columnas || 0}
-            />
+          {grid.length === 0 ? null : (
+            <Bolillero numeroMax={grid.length * grid[0].length || 0} />
           )}
         </div>
       </div>
       <div className="row justify-content-center">
-        {grid ? <Talon grid={grid} /> : null}
+        {grid.length > 0 ? <Talon grid={grid} /> : null}
       </div>
     </>
   );

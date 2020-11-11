@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 const Formulario = ({ submit }) => {
   const [state, handleChange] = useForm({ lineas: 0, columnas: 0 });
   return (
-    <form onSubmit={submit(state)} className="p-3 card bg-secondary">
+    <form onSubmit={submit(state)} className="shadow-sm p-3 card bg-secondary">
       <div className="form-row">
         <div className="col">
           <div className="form-group">
@@ -38,25 +38,33 @@ const Formulario = ({ submit }) => {
           </div>
         </div>
       </div>
-      <div className="form-group">
-        <input type="submit" value="Generar" className=" m-2 btn btn-primary" />
-        <button
-          onClick={submit("limpiar")}
-          type="submit"
-          className="btn btn-danger m-2"
-        >
-          Limpiar
-        </button>
-        <button
-          onClick={submit("guardar")}
-          type="submit"
-          className="btn btn-info m-2"
-        >
-          guardar
-        </button>
-        <Link to="/lista" className="btn btn-success m-2 ">
-          Listado
-        </Link>
+      <div className="form-row">
+        <div className="col">
+          <div className="form-group">
+            <input
+              type="submit"
+              value="Generar"
+              className=" m-2 btn btn-primary"
+            />
+            <button
+              onClick={submit("limpiar")}
+              type="submit"
+              className="btn btn-danger m-2"
+            >
+              Limpiar
+            </button>
+            <button
+              onClick={submit("guardar")}
+              type="submit"
+              className="btn btn-info m-2"
+            >
+              guardar
+            </button>
+            <Link to="/lista" className="btn btn-success m-2 ">
+              Listado
+            </Link>
+          </div>
+        </div>
       </div>
     </form>
   );

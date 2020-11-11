@@ -29,7 +29,7 @@ const useGrid = (grid) => {
     };
 
     let tableTemp = (
-      <table className="table table-responsive table-bordered table-striped table-secondary">
+      <table className="table rounded table-responsive table-bordered table-striped table-secondary">
         <tbody>
           {grid.map((rows, indexRow) => (
             <tr key={indexRow}>
