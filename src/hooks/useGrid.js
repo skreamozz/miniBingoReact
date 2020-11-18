@@ -21,11 +21,7 @@ const useGrid = (grid) => {
 
   useEffect(() => {
     const handleClick = (e) => {
-      if (e.target.className.includes("selected")) {
-        e.target.className = "p-5 font-weight-bold user-select-none";
-      } else {
-        e.target.className += " selected";
-      }
+      e.target.classList.toggle("selected");
     };
 
     let tableTemp = (
