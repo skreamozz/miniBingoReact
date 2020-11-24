@@ -74,15 +74,15 @@ const Bingo = () => {
         <div className="col-md-auto">
           <Formulario submit={handleSubmit} />
         </div>
-      </div>
-      <div className="row justify-content-center my-1">
-        <div className="col-md-auto">
-          {grid.length === 0 ? null : (
-            <Bolillero numeroMax={grid.length * grid[0].length || 0} />
-          )}
+        <div className="col-md-2 align-self-center">
+          <div>
+            {grid.length === 0 ? null : (
+              <Bolillero numeroMax={grid.length * grid[0].length || 0} />
+            )}
+          </div>
         </div>
       </div>
-      <div className="row justify-content-center">
+      <div className="row justify-content-center mt-2">
         {grid.length > 0 ? <Talon grid={grid} /> : null}
       </div>
     </>

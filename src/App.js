@@ -6,7 +6,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 function App() {
   return (
     <div className="container">
-      <div className="jumbotron text-center">
+      <div className="jumbotron jumbotron-color text-center">
         <h3>Bingo de Liliana!! </h3>
       </div>
 

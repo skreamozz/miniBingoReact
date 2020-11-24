@@ -6,12 +6,35 @@
 td:hover td:active {
   background: rgba(5, 5, 5, 0.5);
 }
+.table tbody tr td {
+  transition: all ease 0.2s;
+}
+
 .selected {
   background: #ffce54f9;
+  box-shadow: inset 0px 0px 15px rgba(0, 0, 0, 0.2);
+  animation: select 0.5s forwards linear;
 }
 .tableWrapper {
   position: relative;
-  height: 75vh;
+  height: 70vh;
   overflow: auto;
   display: block;
+}
+.bolillero {
+  max-width: 160px;
+  box-shadow: inset 0px 0px 30px rgba(0, 0, 0, 1),
+    2px 2px 15px rgba(0, 0, 0, 0.5);
+}
+
+@keyframes select {
+  0% {
+    transform: rotateY(0deg);
+  }
+  50% {
+    transform: rotateY(180deg);
+  }
+  100% {
+    transform: rotateY(360deg);
+  }
 }
