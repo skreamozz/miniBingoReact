@@ -14,10 +14,16 @@
     linear-gradient(#dedede 0.1em, transparent 0.1em);
   background-size: 100% 1.2em;
   box-sizing: border-box;
-  height: 10vh;
+  padding: 0;
+  height: 20vh;
+  margin-bottom: 1.5rem;
 }
 .jumbotron.jumbotron-color h3 {
   font-size: xx-large;
   font-weight: bold;
   text-justify: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
 }

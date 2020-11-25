@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 /**
  *
@@ -8,6 +8,13 @@ import React, { useState } from "react";
 const Bolillero = ({ numeroMax }) => {
   const [numero, setNumero] = useState(0);
   const [numerosSalidos, setNumerosSalidos] = useState([]);
+
+  useEffect(() => {
+    if (numeroMax === 0) {
+      setNumerosSalidos([]);
+      setNumero(0);
+    }
+  }, [numeroMax]);
 
   /**
    * funcion recursiva que se encarga de calular los numeros y verificar

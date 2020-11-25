@@ -76,9 +76,7 @@ const Bingo = () => {
         </div>
         <div className="col-md-2 align-self-center">
           <div>
-            {grid.length === 0 ? null : (
-              <Bolillero numeroMax={grid.length * grid[0].length || 0} />
-            )}
+            <Bolillero numeroMax={grid?.length * grid[0]?.length || 0} />
           </div>
         </div>
       </div>
