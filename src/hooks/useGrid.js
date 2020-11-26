@@ -35,7 +35,7 @@ const useGrid = (grid) => {
                   key={indexCol}
                   className="display-4 font-weight-bold text-center user-select-none"
                 >
-                  {cols}
+                  {cols.toString().padStart(2, "00")}
                 </td>
               ))}
               <td>
@@ -47,6 +47,7 @@ const useGrid = (grid) => {
                       id=""
                       placeholder="Nombre"
                       onBlur={handleChange}
+                      style={{ minWidth: "8rem" }}
                       className="form-control form-control-lg bg-dark text-white font-weight-bold "
                     />
                   </div>
