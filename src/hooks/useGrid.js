@@ -33,21 +33,24 @@ const useGrid = (grid) => {
                 <td
                   onClick={handleClick}
                   key={indexCol}
-                  className="p-5 font-weight-bold user-select-none"
+                  className="display-4 font-weight-bold text-center user-select-none"
                 >
                   {cols}
                 </td>
               ))}
-              <td className="form-group">
-                <span>Nombre</span>
-                <input
-                  type="text"
-                  name={indexRow + 1}
-                  id=""
-                  onBlur={handleChange}
-                  className="form-control bg-dark text-white"
-                  style={{ minWidth: "100px" }}
-                />
+              <td>
+                <div className="form-row justify-content-center">
+                  <div className="col">
+                    <input
+                      type="text"
+                      name={indexRow + 1}
+                      id=""
+                      placeholder="Nombre"
+                      onBlur={handleChange}
+                      className="form-control form-control-lg bg-dark text-white font-weight-bold "
+                    />
+                  </div>
+                </div>
               </td>
             </tr>
           ))}

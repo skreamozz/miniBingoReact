@@ -74,8 +74,10 @@ const Bingo = () => {
         <div className="col-md-auto">
           <Formulario submit={handleSubmit} />
         </div>
+      </div>
+      <div className="row justify-content-center">
         <div className="col-md-2 align-self-center">
-          <div>
+          <div className="py-2">
             <Bolillero numeroMax={grid?.length * grid[0]?.length || 0} />
           </div>
         </div>
