@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 const Formulario = ({ submit }) => {
   const [state, handleChange] = useForm({ lineas: 0, columnas: 0 });
   return (
-    <form onSubmit={submit(state)} className="shadow-sm p-3 card bg-secondary">
+    <form onSubmit={submit(state)} className=" p-3 ">
       <div className="form-row">
         <div className="col">
           <div className="form-group">
