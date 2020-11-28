@@ -46,20 +46,6 @@ const Formulario = ({ submit }) => {
               value="Generar"
               className=" m-2 btn btn-primary"
             />
-            <button
-              onClick={submit("limpiar")}
-              type="submit"
-              className="btn btn-danger m-2"
-            >
-              Limpiar
-            </button>
-            <button
-              onClick={submit("guardar")}
-              type="submit"
-              className="btn btn-info m-2"
-            >
-              guardar
-            </button>
             <Link to="/lista" className="btn btn-success m-2 ">
               Listado
             </Link>

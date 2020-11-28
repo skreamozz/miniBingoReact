@@ -3,13 +3,22 @@ import { useBingoContext } from "../context/BingoContext";
 import Bolillero from "./bolillero";
 import Formulario from "./formulario";
 import Talon from "./talon";
+import { Modal } from "./Modal";
 
 const Bingo = () => {
   const { inputs, setInputs } = useBingoContext();
   const [grid, setGrid] = useState([]);
+  const [isOpenModal, setIsOpenModal] = useState(true);
   /**
    * metodo para guardar los inputs en el local storage
    */
+  const closeModal = () => {
+    setIsOpenModal(false);
+  };
+  const openModal = () => {
+    Limpiar();
+    setIsOpenModal(true);
+  };
   const GuardarInputs = () => {
     let date = new Date(Date.now());
     const items = JSON.parse(localStorage.getItem("prueba"));
@@ -43,6 +52,7 @@ const Bingo = () => {
     }
 
     setGrid(tempGrid);
+    setIsOpenModal(false);
   };
   /**
    *
@@ -61,20 +71,10 @@ const Bingo = () => {
 
       return;
     }
-    if (state === "limpiar") {
-      Limpiar();
-
-      return;
-    }
     GenerarGrilla(state);
   };
   return (
     <>
-      <div className="row m-auto justify-content-center">
-        <div className="col-md-auto">
-          <Formulario submit={handleSubmit} />
-        </div>
-      </div>
       <div className="row justify-content-center">
         <div className="col-md-2 align-self-center">
           <div className="py-2">
@@ -83,8 +83,29 @@ const Bingo = () => {
         </div>
       </div>
       <div className="row justify-content-center mt-2">
-        {grid.length > 0 ? <Talon grid={grid} /> : null}
+        <div className="col-md-auto">
+          <div className="row">
+            <div className="col ">
+              <button
+                onClick={openModal}
+                className="btn btn-outline-primary btn-sm m-2"
+              >
+                Nuevo
+              </button>
+              <button
+                onClick={handleSubmit("guardar")}
+                className="btn btn-outline-success btn-sm m-2"
+              >
+                Guardar
+              </button>
+            </div>
+          </div>
+          {grid.length > 0 && <Talon grid={grid} />}
+        </div>
       </div>
+      <Modal show={isOpenModal} closeModal={closeModal}>
+        <Formulario submit={handleSubmit} />
+      </Modal>
     </>
   );
 };
