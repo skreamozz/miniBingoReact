@@ -7,7 +7,7 @@ function App() {
   return (
     <div className="container">
       <div className="jumbotron jumbotron-color text-center">
-        <h3>Bingo de Liliana!! </h3>
+        <h3>Mini Bingo</h3>
       </div>
 
       <BingoProvider>
